@@ -13,13 +13,14 @@ type CheckboxProps = {
   onChange: (checkboxName: string) => void;
   name: string;
   value: boolean;
+  label: string;
 };
 
-const Checkbox = ({ name, onChange, value }: CheckboxProps) => {
+const Checkbox = ({ name, onChange, value, label }: CheckboxProps) => {
   return (
     <div className="checkbox">
       <label className={cx({ checked: value })} htmlFor={name}>
-        {name}
+        {label}
       </label>
       <input
         id={name}
@@ -88,9 +89,10 @@ function App({ storage }: { storage?: Item[] }) {
         </button>
       </header>
       <div className="items-list">
-        {items.map(({ name, value }) => {
+        {items.map(({ name, value, label }) => {
           return (
             <Checkbox
+              label={label}
               key={name}
               name={name}
               value={value}
