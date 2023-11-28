@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
-import cx from'classnames'
+import cx from 'classnames';
 
 type Item = { name: string; value: boolean; label: string };
 
@@ -18,7 +18,9 @@ type CheckboxProps = {
 const Checkbox = ({ name, onChange, value }: CheckboxProps) => {
   return (
     <div className="checkbox">
-      <label className={cx({checked: value})} htmlFor={name}>{name}</label>
+      <label className={cx({ checked: value })} htmlFor={name}>
+        {name}
+      </label>
       <input
         id={name}
         name={name}
@@ -98,8 +100,6 @@ function App({ storage }: { storage?: Item[] }) {
         })}
         {!items.length && <p>No items</p>}
       </div>
-
-      <hr />
       <form onSubmit={onAddItem}>
         <input
           onChange={(e) => {
@@ -109,7 +109,7 @@ function App({ storage }: { storage?: Item[] }) {
           value={newItemInput}
           type="text"
         />
-        <button type="submit">Add</button>
+        <button type="submit">ADD</button>
       </form>
     </div>
   );
