@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './App.tsx';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+const storage = localStorage.getItem('storage')
 root.render(
   <React.StrictMode>
-    <App />
+    <App storage={storage ? JSON.parse(storage) : undefined} />
   </React.StrictMode>
 );
 
